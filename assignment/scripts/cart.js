@@ -48,12 +48,24 @@ function isFull(){
         return true;
     }
 }
+function removeItem(item){
 
+}
 
 //---------------------------------------------------tests-------------------------
 //test adding 1 item
 console.log(`Basket is ${basket}`);
 console.log('Adding apples (expect true)', addItem('apples'));
+runAfterTest();
+
+//test super long string
+let thisstringcouldBeLongerAswell = 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf';
+console.log('adding item very long string (expect true)', addItem(thisstringcouldBeLongerAswell))
+runAfterTest();
+
+//test number with lots of decimals
+let numberWithLotsOfDecimals = 0.0000000000000000000000000000000000000000000045;
+console.log('test number with lots of decimals (expect true)', addItem(numberWithLotsOfDecimals))
 runAfterTest();
 
 //test adding empty string
