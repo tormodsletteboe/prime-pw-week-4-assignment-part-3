@@ -49,7 +49,16 @@ function isFull(){
     }
 }
 function removeItem(item){
-
+    let indexofMatch = basket.indexOf(item);
+    if(indexofMatch!= -1){
+        let removedItem = basket.splice(indexofMatch,1);
+        return removedItem;
+    }
+    else
+    {
+        return null;
+    }
+    
 }
 
 //---------------------------------------------------tests-------------------------
@@ -115,4 +124,50 @@ console.log('trying to add 10 items, (should say true 5 times, then false 5 time
 for(let i =0; i<10;i++){
    console.log( addItem('item number: '+i));
 }
+runAfterTest();
+
+//test to remove item
+console.log('test to removeItem');
+console.log('calling empty first');
+empty();
+console.log('adding 5 items');
+basket=['item1','item2','item3','item4','item5'];
+console.log('basket is now '+basket);
+console.log('removing item3');
+removeItem('item3');
+runAfterTest();
+
+//test to remove non existing item
+console.log('test to remove non existing item');
+console.log('calling empty first');
+empty();
+console.log('adding 5 items');
+basket=['item1','item2','item3','item4','item5'];
+console.log('basket is now '+basket);
+console.log('removing item27');
+removeItem('item27');
+runAfterTest();
+
+//does removeItem function return item removed
+console.log('does removeItem function return item removed');
+console.log('calling empty first');
+empty();
+console.log('adding 5 items');
+basket=['item1','item2','item3','item4','item5'];
+console.log('basket is now '+basket);
+console.log('removing item3');
+let stuffreturned = removeItem('item3');
+console.log('item removed was: '+ stuffreturned);
+runAfterTest();
+
+//if item not found does removeItem return null
+console.log('if item not found does removeItem return null');
+console.log('calling empty first');
+empty();
+console.log('adding 5 items');
+basket=['item1','item2','item3','item4','item5'];
+console.log('basket is now '+basket);
+console.log('removing item27');
+let stuffreturned2 = removeItem('item27');
+console.log('item removed was: '+ stuffreturned2);
 runAfterTest();
